@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "DM Sans", sans-serif;
+  
+  --color-rose-gold: #C49A6C;
+  --color-sapphire: #1B2A6B;
+  --color-snow: #FAFAF8;
+  --color-champagne: #F3E5D8;
+}
+
+:root {
+  --rose-gold: #C49A6C;
+  --sapphire: #1B2A6B;
+  --snow: #FAFAF8;
+}
+
+body {
+  background-color: var(--snow);
+  color: var(--sapphire);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.pulse-badge {
+  animation: pulse-soft 3s infinite ease-in-out;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Crystal Texture Overlay */
+.crystal-bg {
+  background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-attachment: fixed;
+}
+
+/* Price Strike Animation */
+.price-strike {
+  position: relative;
+  display: inline-block;
+}
+
+.price-strike::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 2px;
+  background: #A0A0A0;
+  transition: width 1s ease-in-out 0.5s;
+}
+
+.reveal.active .price-strike::after {
+  width: 100%;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--snow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rose-gold);
+  border-radius: 10px;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(196, 154, 108, 0.2);
+}
